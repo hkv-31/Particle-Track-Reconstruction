@@ -13,7 +13,7 @@ In experimental particle physics, charged particles leave traces ("hits") as the
 **Dataset**
 This project uses the TrackML Particle Identification dataset from Kaggle, which simulates hits from a typical collider experiment.
 
-Usage
+**Usage**
 The primary work is documented in the Jupyter Notebook:
 
 (jupyter nb link): Contains the full workflow from data loading, EDA, preprocessing, clustering, and visualization.
