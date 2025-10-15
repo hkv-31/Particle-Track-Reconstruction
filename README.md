@@ -1,79 +1,50 @@
-## **Particle Track Reconstruction with ML**
+# Particle Track Reconstruction with Machine Learning
 
-A personal project exploring the application of machine learning for reconstructing particle trajectories from the TrackML dataset. This repository contains implementations of clustering algorithms to group 3D hit coordinates in particle detectors, serving as a bridge between particle physics and machine learning.
+A personal project exploring the application of **machine learning** for reconstructing **particle trajectories** from the **TrackML dataset**.  
+This repository implements **clustering algorithms** to group 3D hit coordinates in particle detectors — bridging **particle physics** and **data science**.  
 
-## **Project Overview**
+---
 
-In experimental particle physics, charged particles leave traces ("hits") as they travel through layered detector systems. The challenge is to group these hits into individual particle trajectories, a process known as track reconstruction. This project tackles this problem using unsupervised learning algorithms.
+## 🔍 Project Overview
 
-## **Key Features**
+In experimental **particle physics**, charged particles leave traces ("hits") as they move through layered detector systems.  
+The challenge is to **group these hits into individual particle tracks**, a process known as **track reconstruction**.  
 
-i. Exploratory Data Analysis (EDA) of the TrackML dataset to understand hit distributions and detector geometry.
+This project tackles that challenge using **unsupervised learning algorithms** to cluster 3D hit data into meaningful trajectories.
 
-ii. Implementation of clustering algorithms (K-Means, DBSCAN) using Scikit-learn to group hits into potential particle tracks.
+---
 
-iii. 3D visualization of hit data and clustering results using Matplotlib.
+## ✨ Key Features
 
-iv. A modular codebase for easy experimentation and extension.
+- **Exploratory Data Analysis (EDA)** — Analyze hit distributions and detector geometry.  
+- **Machine Learning Models** — Implement **K-Means** and **DBSCAN** clustering using *Scikit-learn*.  
+- **3D Visualization** — Render hit data and clustering outputs with *Matplotlib*.  
+- **Modular Codebase** — Clean, extensible structure for quick experimentation and future upgrades.
 
-## **Dataset**
+---
 
-This project uses the TrackML Particle Identification dataset from Kaggle, which simulates hits from a typical collider experiment.
+## 📁 Dataset
 
-## **Usage**
+This project uses the **TrackML Particle Identification** dataset from [Kaggle](https://www.kaggle.com/competitions/trackml-particle-identification),  
+simulating detector hits from a collider experiment.  
 
-trackml_clustering_analysis.ipynb – Contains the full workflow from data loading, EDA, preprocessing, clustering, and visualization.
+Each event contains:
+- 3D hit coordinates  
+- Detector layer information  
+- Ground-truth particle IDs (for benchmarking)  
 
-## **Preliminary Results**
+---
 
-This project applies clustering techniques to the 3D hit data, providing a foundational baseline for particle track reconstruction.
+## 🚀 Usage
 
-**Findings: K-Means vs DBSCAN**
+Open the Jupyter Notebook to explore the full workflow:
 
-**1. K-Means**
+```bash
+trackml_clustering_analysis.ipynb
 
--> Requires pre-setting the number of clusters (K), which is impractical for thousands of tracks.
+## The notebook covers:
+1. Data loading and preprocessing
+2. Exploratory data analysis (EDA)
+3. Clustering with K-Means and DBSCAN
+4. 3D visualization of particle tracks
 
--> Produces equally-sized, convex-shaped clusters.
-
--> Tends to merge nearby tracks or split long tracks incorrectly.
-
--> Does not handle noise – every point is forced into a cluster.
-
-**2. DBSCAN**
-
--> Does not require the number of clusters in advance.
-
--> Identifies arbitrarily-shaped clusters, better reflecting curved particle tracks.
-
--> Labels low-density hits as noise, which is useful in ignoring spurious hits.
-
-## **Comparison:**
-
-i. K-Means is simple and fast but fundamentally limited for complex, irregular track geometries.
-
-ii. DBSCAN better matches the nature of track data by capturing dense regions and discarding noise, though tuning parameters is crucial.
-
-iii. Neither fully reconstructs tracks alone, but the insights provide a baseline for moving toward graph-based and ML-driven approaches.
-
-## **Future Work**
-
-Future improvements will focus on:
-
-i. Feature engineering (adding radial distance, angular features, and detector layer info).
-
-ii. Graph-based approaches (constructing hit graphs and applying Graph Neural Networks).
-
-iii. Advanced tracking techniques inspired by physics (Kalman filters, Hough transforms).
-
-iv. Benchmarking against ground-truth particle IDs for quantitative evaluation.
-
-## **License**
-
-This project is licensed under the MIT License - see the LICENSE.md file for details.
-
-## **Acknowledgments**
-
-TrackML collaboration for providing the dataset and the problem statement.
-
-CERN and other particle physics laboratories for their pioneering work.
